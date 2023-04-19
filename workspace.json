@@ -1,0 +1,640 @@
+{
+  "id" : 1,
+  "name" : "Name",
+  "description" : "Description",
+  "lastModifiedDate" : "2023-04-19T16:55:35Z",
+  "lastModifiedAgent" : "structurizr-javascript",
+  "properties" : {
+    "structurizr.dsl" : "d29ya3NwYWNlIHsKICAgIG1vZGVsIHsKICAgICAgICAjIGVudGVycHJpc2UgIkJpZyBCYW5rIiB7CiAgICAgICAgICAgICMgUGVvcGxlL0FjdG9ycwogICAgICAgICAgICAjIDx2YXJpYWJsZT4gPSBwZXJzb24gPG5hbWU+IDxkZXNjcmlwdGlvbj4gPHRhZz4KICAgICAgICAgICAgY3VzdG9tZXIgPSBwZXJzb24gIlBlcnNvbmFsIEJhbmtpbmcgQ3VzdG9tZXIiICJBIGN1c3RvbWVyIG9mIHRoZSBiYW5rLCB3aXRoIHBlcnNvbmFsIGJhbmsgYWNjb3VudHMuIiAiQ3VzdG9tZXIiCgogICAgICAgICAgICAjIFNvZnR3YXJlIFN5c3RlbQogICAgICAgICAgICAjIDx2YXJpYWJsZT4gPSBzb2Z0d2FyZVN5c3RlbSA8bmFtZT4gPGRlc2NyaXB0aW9uPiA8dGFnPgogICAgICAgICAgICBpQmFua2luZ1N5cyA9IHNvZnR3YXJlU3lzdGVtICJJbnRlcm5ldCBCYW5raW5nIFN5c3RlbSIgIkFsbG93cyBjdXN0b21lcnMgdG8gdmlldyBpbmZvcm1hdGlvbiBhYm91dCB0aGVpciBiYW5rIGFjY291bnRzLCBhbmQgbWFrZSBwYXltZW50cy4iICJUYXJnZXQgU3lzdGVtIiB7CiAgICAgICAgICAgICAgICAjIExldmVsIDI6IENvbnRhaW5lcgogICAgICAgICAgICAgICAgIyA8dmFyaWFibGU+ID0gc29mdHdhcmVTeXN0ZW0gPG5hbWU+IDxkZXNjcmlwdGlvbj4gPHRhZz4KICAgICAgICAgICAgICAgICMgYXBwID0gZ3JvdXAgIkFwcGxpY2F0aW9uIiB7CiAgICAgICAgICAgICAgICAgICAgc2luZ2xlUGFnZUFwcCA9IGNvbnRhaW5lciAiU2luZ2xlLVBhZ2UgQXBwbGljYXRpb24iICJQcm92aWRlcyBhbGwgb2YgdGhlIEludGVybmV0IGJhbmtpbmcgZnVuY3Rpb25hbGl0eSB0byBjdXN0b21lcnMgdmlhIHRoZWlyIHdlYiBicm93c2VyLiIgIkphdmFTY3JpcHQgYW5kIEFuZ3VsYXIiICJXZWIgQnJvd3NlciIKICAgICAgICAgICAgICAgICAgICBtb2JpbGVBcHAgPSBjb250YWluZXIgIk1vYmlsZSBBcHAiICJQcm92aWRlcyBhIGxpbWl0ZWQgc3Vic2V0IG9mIHRoZSBJbnRlcm5ldCBiYW5raW5nIGZ1bmN0aW9uYWxpdHkgdG8gY3VzdG9tZXJzIHZpYSB0aGVpciBtb2JpbGUgZGV2aWNlLiIgIlhhbWFyaW4iICJNb2JpbGUgQXBwIgogICAgICAgICAgICAgICAgICAgIHdlYkFwcCA9IGNvbnRhaW5lciAiV2ViIEFwcGxpY2F0aW9uIiAiRGVsaXZlcnMgdGhlIHN0YXRpYyBjb250ZW50IGFuZCB0aGUgSW50ZXJuZXQgYmFua2luZyBzaW5nbGUgcGFnZSBhcHBsaWNhdGlvbi4iICJKYXZhIGFuZCBTcHJpbmcgTVZDIgogICAgICAgICAgICAgICAgIyB9CiAgICAgICAgICAgICAgICBhcGlBcHAgPSBjb250YWluZXIgIkFQSSBBcHBsaWNhdGlvbiIgIlByb3ZpZGVzIEludGVybmV0IGJhbmtpbmcgZnVuY3Rpb25hbGl0eSB2aWEgYSBKU09OL0hUVFBTIEFQSS4iICJKYXZhIGFuZCBTcHJpbmcgTVZDIiB7CiAgICAgICAgICAgICAgICAgICAgIyBMZXZlbCAzOiBDb21wb25lbnQKICAgICAgICAgICAgICAgICAgICBzaWduaW5Db250cm9sbGVyID0gY29tcG9uZW50ICJTaWduIEluIENvbnRyb2xsZXIiICJBbGxvd3MgdXNlcnMgdG8gc2lnbiBpbiB0byB0aGUgSW50ZXJuZXQgQmFua2luZyBTeXN0ZW0uIiAiU3ByaW5nIE1WQyBSZXN0IENvbnRyb2xsZXIiCiAgICAgICAgICAgICAgICAgICAgYWNjb3VudHNTdW1tYXJ5Q29udHJvbGxlciA9IGNvbXBvbmVudCAiQWNjb3VudHMgU3VtbWFyeSBDb250cm9sbGVyIiAiUHJvdmlkZXMgY3VzdG9tZXJzIHdpdGggYSBzdW1tYXJ5IG9mIHRoZWlyIGJhbmsgYWNjb3VudHMuIiAiU3ByaW5nIE1WQyBSZXN0IENvbnRyb2xsZXIiCiAgICAgICAgICAgICAgICAgICAgcmVzZXRQYXNzd29yZENvbnRyb2xsZXIgPSBjb21wb25lbnQgIlJlc2V0IFBhc3N3b3JkIENvbnRyb2xsZXIiICJBbGxvd3MgdXNlcnMgdG8gcmVzZXQgdGhlaXIgcGFzc3dvcmRzIHdpdGggYSBzaW5nbGUgdXNlIFVSTC4iICJTcHJpbmcgTVZDIFJlc3QgQ29udHJvbGxlciIKICAgICAgICAgICAgICAgICAgICBzZWN1cml0eUNvbXBvbmVudCA9IGNvbXBvbmVudCAiU2VjdXJpdHkgQ29tcG9uZW50IiAiUHJvdmlkZXMgZnVuY3Rpb25hbGl0eSByZWxhdGVkIHRvIHNpZ25pbmcgaW4sIGNoYW5naW5nIHBhc3N3b3JkcywgZXRjLiIgIlNwcmluZyBCZWFuIgogICAgICAgICAgICAgICAgICAgIG1haW5mcmFtZUJhbmtpbmdTeXN0ZW1GYWNhZGUgPSBjb21wb25lbnQgIk1haW5mcmFtZSBCYW5raW5nIFN5c3RlbSBGYWNhZGUiICJBIGZhY2FkZSBvbnRvIHRoZSBtYWluZnJhbWUgYmFua2luZyBzeXN0ZW0uIiAiU3ByaW5nIEJlYW4iCiAgICAgICAgICAgICAgICAgICAgZW1haWxDb21wb25lbnQgPSBjb21wb25lbnQgIkUtbWFpbCBDb21wb25lbnQiICJTZW5kcyBlLW1haWxzIHRvIHVzZXJzLiIgIlNwcmluZyBCZWFuIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgZGF0YWJhc2UgPSBjb250YWluZXIgIkRhdGFiYXNlIiAiU3RvcmVzIHVzZXIgcmVnaXN0cmF0aW9uIGluZm9ybWF0aW9uLCBoYXNoZWQgYXV0aGVudGljYXRpb24gY3JlZGVudGlhbHMsIGFjY2VzcyBsb2dzLCBldGMuIiAiT3JhY2xlIERhdGFiYXNlIFNjaGVtYSIgIkRhdGFiYXNlIgogICAgICAgICAgICB9CiAgICAgICAgIyB9CiAgICAgICAgCiAgICAgICAgIyBFeHRlcm5hbCBTb2Z0d2FyZSBTeXN0ZW1zCiAgICAgICAgZW1haWxTeXMgPSBzb2Z0d2FyZVN5c3RlbSAiRS1tYWlsIFN5c3RlbSIgIlRoZSBpbnRlcm5hbCBNaWNyb3NvZnQgRXhjaGFuZ2UgZS1tYWlsIHN5c3RlbS4iICJFeHRlcm5hbCBTeXN0ZW0iCiAgICAgICAgbWFpbmZyYW1lU3lzID0gc29mdHdhcmVTeXN0ZW0gIk1haW5mcmFtZSBCYW5raW5nIFN5c3RlbSIgIlN0b3JlcyBhbGwgb2YgdGhlIGNvcmUgYmFua2luZyBpbmZvcm1hdGlvbiBhYm91dCBjdXN0b21lcnMsIGFjY291bnRzLCB0cmFuc2FjdGlvbnMsIGV0Yy4iICJFeHRlcm5hbCBTeXN0ZW0iCgogICAgICAgICMgUmVsYXRpb25zaGlwIGJldHdlZW4gUGVvcGxlIGFuZCBTb2Z0d2FyZSBTeXN0ZW1zCiAgICAgICAgY3VzdG9tZXIgLT4gaUJhbmtpbmdTeXMgIlZpZXdzIGFjY291bnQgYmFsYW5jZXMsIGFuZCBtYWtlcyBwYXltZW50cyB1c2luZyIKICAgICAgICBpQmFua2luZ1N5cyAtPiBlbWFpbFN5cyAiU2VuZCBlbWFpbCB1c2luZyIKICAgICAgICBpQmFua2luZ1N5cyAtPiBtYWluZnJhbWVTeXMgIkdldHMgYWNjb3VudCBpbmZvcm1hdGlvbiBmcm9tLCBhbmQgbWFrZXMgcGF5bWVudHMgdXNpbmciCiAgICAgICAgZW1haWxTeXMgLT4gY3VzdG9tZXIgIlNlbmRzIGVtYWlscyB0byIKCiAgICAgICAgIyBSZWxhdGlvbnNoaXAgYmV0d2VlbiBDb250YWluZXJzCiAgICAgICAgY3VzdG9tZXIgLT4gc2luZ2xlUGFnZUFwcCAiVmlld3MgYWNjb3VudCBiYWxhbmNlcywgYW5kIG1ha2VzIHBheW1lbnRzIHVzaW5nIgogICAgICAgIGN1c3RvbWVyIC0+IHdlYkFwcCAiVmlzaXRzIGJpZ2JhbmsuY29tL2liIHVzaW5nIiAiSFRUUFMiCiAgICAgICAgY3VzdG9tZXIgLT4gbW9iaWxlQXBwICJWaWV3cyBhY2NvdW50IGJhbGFuY2VzLCBhbmQgbWFrZXMgcGF5bWVudHMgdXNpbmciCiAgICAgICAgd2ViQXBwIC0+IHNpbmdsZVBhZ2VBcHAgIkRlbGl2ZXJzIHRvIHRoZSBjdXN0b21lcidzIHdlYiBicm93c2VyIgogICAgICAgIG1vYmlsZUFwcCAtPiBhcGlBcHAgIk1ha2VzIEFQSSBjYWxscyB0byBbSlNPTi9IVFRQU10iCiAgICAgICAgc2luZ2xlUGFnZUFwcCAtPiBkYXRhYmFzZSAiUmVhZHMgZnJvbSBhbmQgd3JpdGVzIHRvIFtKREJDXSIKICAgICAgICBzaW5nbGVQYWdlQXBwIC0+ICBhcGlBcHAgIk1ha2VzIEFQSSBjYWxscyB0byBbSlNPTi9IVFRQU10iCgogICAgICAgICMgUmVsYXRpb25zaGlwIGJldHdlZW4gQ29udGFpbmVycyBhbmQgRXh0ZXJuYWwgU3lzdGVtCiAgICAgICAgYXBpQXBwIC0+IGVtYWlsU3lzICJTZW5kIGVtYWlsIHVzaW5nIgogICAgICAgIGFwaUFwcCAtPiBtYWluZnJhbWVTeXMgIk1ha2UgQVBJIGNhbGxzIHRvIFtYTUwvSFRUUFNdIgoKICAgICAgICAjIFJlbGF0aW9uc2hpcCBiZXR3ZWVuIENvbXBvbmVudHMKICAgICAgICBzaWduaW5Db250cm9sbGVyIC0+IHNlY3VyaXR5Q29tcG9uZW50ICJVc2VzIgogICAgICAgIGFjY291bnRzU3VtbWFyeUNvbnRyb2xsZXIgLT4gbWFpbmZyYW1lQmFua2luZ1N5c3RlbUZhY2FkZSAiVXNlcyIKICAgICAgICByZXNldFBhc3N3b3JkQ29udHJvbGxlciAtPiBzZWN1cml0eUNvbXBvbmVudCAiVXNlcyIKICAgICAgICByZXNldFBhc3N3b3JkQ29udHJvbGxlciAtPiBlbWFpbENvbXBvbmVudCAiVXNlcyIKICAgICAgICBzZWN1cml0eUNvbXBvbmVudCAtPiBkYXRhYmFzZSAiUmVhZHMgZnJvbSBhbmQgd3JpdGVzIHRvIiAiSkRCQyIKICAgICAgICBtYWluZnJhbWVCYW5raW5nU3lzdGVtRmFjYWRlIC0+IG1haW5mcmFtZVN5cyAiTWFrZXMgQVBJIGNhbGxzIHRvIiAiWE1ML0hUVFBTIgogICAgICAgIGVtYWlsQ29tcG9uZW50IC0+IGVtYWlsU3lzICJTZW5kcyBlLW1haWwgdXNpbmciCgogICAgICAgICMgUmVsYXRpb25zaGlwIGJldHdlZW4gQ29tcG9uZW50cyBhbmQgT3RoZXIgQ29udGFpbmVycwogICAgICAgIHNpbmdsZVBhZ2VBcHAgLT4gc2lnbmluQ29udHJvbGxlciAiTWFrZXMgQVBJIGNhbGxzIHRvIiAiSlNPTi9IVFRQUyIKICAgICAgICBzaW5nbGVQYWdlQXBwIC0+IGFjY291bnRzU3VtbWFyeUNvbnRyb2xsZXIgIk1ha2VzIEFQSSBjYWxscyB0byIgIkpTT04vSFRUUFMiCiAgICAgICAgc2luZ2xlUGFnZUFwcCAtPiByZXNldFBhc3N3b3JkQ29udHJvbGxlciAiTWFrZXMgQVBJIGNhbGxzIHRvIiAiSlNPTi9IVFRQUyIKICAgICAgICBtb2JpbGVBcHAgLT4gc2lnbmluQ29udHJvbGxlciAiTWFrZXMgQVBJIGNhbGxzIHRvIiAiSlNPTi9IVFRQUyIKICAgICAgICBtb2JpbGVBcHAgLT4gYWNjb3VudHNTdW1tYXJ5Q29udHJvbGxlciAiTWFrZXMgQVBJIGNhbGxzIHRvIiAiSlNPTi9IVFRQUyIKICAgICAgICBtb2JpbGVBcHAgLT4gcmVzZXRQYXNzd29yZENvbnRyb2xsZXIgIk1ha2VzIEFQSSBjYWxscyB0byIgIkpTT04vSFRUUFMiCiAgICB9CgogICAgdmlld3MgewogICAgICAgICMgTGV2ZWwgMQogICAgICAgIHN5c3RlbUNvbnRleHQgaUJhbmtpbmdTeXMgIlN5c3RlbUNvbnRleHQiIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgICMgZGVmYXVsdDogdGIsCiAgICAgICAgICAgICMgc3VwcG9ydCB0YiwgYnQsIGxyLCBybAogICAgICAgICAgICBhdXRvTGF5b3V0CiAgICAgICAgfQogICAgICAgICMgTGV2ZWwgMgogICAgICAgIGNvbnRhaW5lciBpQmFua2luZ1N5cyAiQ29udGFpbmVycyIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgYXV0b0xheW91dCBscgogICAgICAgIH0KCiAgICAgICAgY29tcG9uZW50IGFwaUFwcCAiQ29tcG9uZW50cyIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgYXV0b0xheW91dAogICAgICAgIH0KCiAgICAgICAgc3R5bGVzIHsKICAgICAgICAgICAgIyBlbGVtZW50IDx0YWc+IHt9CiAgICAgICAgICAgIGVsZW1lbnQgIkN1c3RvbWVyIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICMwODQyN0IKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgICAgIGZvbnRTaXplIDIyCiAgICAgICAgICAgICAgICBzaGFwZSBQZXJzb24KICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJUYXJnZXQgU3lzdGVtIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICMxMTY4QkQKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJFeHRlcm5hbCBTeXN0ZW0iIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzk5OTk5OQogICAgICAgICAgICAgICAgY29sb3IgI2ZmZmZmZgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkRhdGFiYXNlIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBDeWxpbmRlcgogICAgICAgICAgICB9CiAgICAgICAgfQoKICAgICAgICB0aGVtZSBkZWZhdWx0CiAgICB9Cgp9Cg=="
+  },
+  "configuration" : { },
+  "model" : {
+    "people" : [ {
+      "id" : "1",
+      "tags" : "Element,Person,Customer",
+      "properties" : {
+        "structurizr.dsl.identifier" : "customer"
+      },
+      "name" : "Personal Banking Customer",
+      "description" : "A customer of the bank, with personal bank accounts.",
+      "relationships" : [ {
+        "id" : "20",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "3",
+        "description" : "Views account balances, and makes payments using"
+      }, {
+        "id" : "16",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "2",
+        "description" : "Views account balances, and makes payments using"
+      }, {
+        "id" : "22",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "4",
+        "description" : "Views account balances, and makes payments using"
+      }, {
+        "id" : "21",
+        "tags" : "Relationship",
+        "sourceId" : "1",
+        "destinationId" : "5",
+        "description" : "Visits bigbank.com/ib using",
+        "technology" : "HTTPS"
+      } ],
+      "location" : "Unspecified"
+    } ],
+    "softwareSystems" : [ {
+      "id" : "15",
+      "tags" : "Element,Software System,External System",
+      "properties" : {
+        "structurizr.dsl.identifier" : "mainframesys"
+      },
+      "name" : "Mainframe Banking System",
+      "description" : "Stores all of the core banking information about customers, accounts, transactions, etc.",
+      "location" : "Unspecified",
+      "documentation" : { }
+    }, {
+      "id" : "14",
+      "tags" : "Element,Software System,External System",
+      "properties" : {
+        "structurizr.dsl.identifier" : "emailsys"
+      },
+      "name" : "E-mail System",
+      "description" : "The internal Microsoft Exchange e-mail system.",
+      "relationships" : [ {
+        "id" : "19",
+        "tags" : "Relationship",
+        "sourceId" : "14",
+        "destinationId" : "1",
+        "description" : "Sends emails to"
+      } ],
+      "location" : "Unspecified",
+      "documentation" : { }
+    }, {
+      "id" : "2",
+      "tags" : "Element,Software System,Target System",
+      "properties" : {
+        "structurizr.dsl.identifier" : "ibankingsys"
+      },
+      "name" : "Internet Banking System",
+      "description" : "Allows customers to view information about their bank accounts, and make payments.",
+      "relationships" : [ {
+        "id" : "17",
+        "tags" : "Relationship",
+        "sourceId" : "2",
+        "destinationId" : "14",
+        "description" : "Send email using"
+      }, {
+        "id" : "18",
+        "tags" : "Relationship",
+        "sourceId" : "2",
+        "destinationId" : "15",
+        "description" : "Gets account information from, and makes payments using"
+      } ],
+      "location" : "Unspecified",
+      "containers" : [ {
+        "id" : "6",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "apiapp"
+        },
+        "name" : "API Application",
+        "description" : "Provides Internet banking functionality via a JSON/HTTPS API.",
+        "relationships" : [ {
+          "id" : "27",
+          "tags" : "Relationship",
+          "sourceId" : "6",
+          "destinationId" : "14",
+          "description" : "Send email using"
+        }, {
+          "id" : "34",
+          "sourceId" : "6",
+          "destinationId" : "13",
+          "description" : "Reads from and writes to",
+          "technology" : "JDBC",
+          "linkedRelationshipId" : "33"
+        }, {
+          "id" : "28",
+          "tags" : "Relationship",
+          "sourceId" : "6",
+          "destinationId" : "15",
+          "description" : "Make API calls to [XML/HTTPS]"
+        } ],
+        "technology" : "Java and Spring MVC",
+        "components" : [ {
+          "id" : "12",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "emailcomponent"
+          },
+          "name" : "E-mail Component",
+          "description" : "Sends e-mails to users.",
+          "relationships" : [ {
+            "id" : "36",
+            "tags" : "Relationship",
+            "sourceId" : "12",
+            "destinationId" : "14",
+            "description" : "Sends e-mail using"
+          } ],
+          "technology" : "Spring Bean",
+          "documentation" : { }
+        }, {
+          "id" : "9",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "resetpasswordcontroller"
+          },
+          "name" : "Reset Password Controller",
+          "description" : "Allows users to reset their passwords with a single use URL.",
+          "relationships" : [ {
+            "id" : "32",
+            "tags" : "Relationship",
+            "sourceId" : "9",
+            "destinationId" : "12",
+            "description" : "Uses"
+          }, {
+            "id" : "31",
+            "tags" : "Relationship",
+            "sourceId" : "9",
+            "destinationId" : "10",
+            "description" : "Uses"
+          } ],
+          "technology" : "Spring MVC Rest Controller",
+          "documentation" : { }
+        }, {
+          "id" : "8",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "accountssummarycontroller"
+          },
+          "name" : "Accounts Summary Controller",
+          "description" : "Provides customers with a summary of their bank accounts.",
+          "relationships" : [ {
+            "id" : "30",
+            "tags" : "Relationship",
+            "sourceId" : "8",
+            "destinationId" : "11",
+            "description" : "Uses"
+          } ],
+          "technology" : "Spring MVC Rest Controller",
+          "documentation" : { }
+        }, {
+          "id" : "10",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "securitycomponent"
+          },
+          "name" : "Security Component",
+          "description" : "Provides functionality related to signing in, changing passwords, etc.",
+          "relationships" : [ {
+            "id" : "33",
+            "tags" : "Relationship",
+            "sourceId" : "10",
+            "destinationId" : "13",
+            "description" : "Reads from and writes to",
+            "technology" : "JDBC"
+          } ],
+          "technology" : "Spring Bean",
+          "documentation" : { }
+        }, {
+          "id" : "7",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "signincontroller"
+          },
+          "name" : "Sign In Controller",
+          "description" : "Allows users to sign in to the Internet Banking System.",
+          "relationships" : [ {
+            "id" : "29",
+            "tags" : "Relationship",
+            "sourceId" : "7",
+            "destinationId" : "10",
+            "description" : "Uses"
+          } ],
+          "technology" : "Spring MVC Rest Controller",
+          "documentation" : { }
+        }, {
+          "id" : "11",
+          "tags" : "Element,Component",
+          "properties" : {
+            "structurizr.dsl.identifier" : "mainframebankingsystemfacade"
+          },
+          "name" : "Mainframe Banking System Facade",
+          "description" : "A facade onto the mainframe banking system.",
+          "relationships" : [ {
+            "id" : "35",
+            "tags" : "Relationship",
+            "sourceId" : "11",
+            "destinationId" : "15",
+            "description" : "Makes API calls to",
+            "technology" : "XML/HTTPS"
+          } ],
+          "technology" : "Spring Bean",
+          "documentation" : { }
+        } ],
+        "documentation" : { }
+      }, {
+        "id" : "4",
+        "tags" : "Element,Container,Mobile App",
+        "properties" : {
+          "structurizr.dsl.identifier" : "mobileapp"
+        },
+        "name" : "Mobile App",
+        "description" : "Provides a limited subset of the Internet banking functionality to customers via their mobile device.",
+        "relationships" : [ {
+          "id" : "41",
+          "tags" : "Relationship",
+          "sourceId" : "4",
+          "destinationId" : "8",
+          "description" : "Makes API calls to",
+          "technology" : "JSON/HTTPS"
+        }, {
+          "id" : "24",
+          "tags" : "Relationship",
+          "sourceId" : "4",
+          "destinationId" : "6",
+          "description" : "Makes API calls to [JSON/HTTPS]"
+        }, {
+          "id" : "42",
+          "tags" : "Relationship",
+          "sourceId" : "4",
+          "destinationId" : "9",
+          "description" : "Makes API calls to",
+          "technology" : "JSON/HTTPS"
+        }, {
+          "id" : "40",
+          "tags" : "Relationship",
+          "sourceId" : "4",
+          "destinationId" : "7",
+          "description" : "Makes API calls to",
+          "technology" : "JSON/HTTPS"
+        } ],
+        "technology" : "Xamarin",
+        "documentation" : { }
+      }, {
+        "id" : "3",
+        "tags" : "Element,Container,Web Browser",
+        "properties" : {
+          "structurizr.dsl.identifier" : "singlepageapp"
+        },
+        "name" : "Single-Page Application",
+        "description" : "Provides all of the Internet banking functionality to customers via their web browser.",
+        "relationships" : [ {
+          "id" : "38",
+          "tags" : "Relationship",
+          "sourceId" : "3",
+          "destinationId" : "8",
+          "description" : "Makes API calls to",
+          "technology" : "JSON/HTTPS"
+        }, {
+          "id" : "37",
+          "tags" : "Relationship",
+          "sourceId" : "3",
+          "destinationId" : "7",
+          "description" : "Makes API calls to",
+          "technology" : "JSON/HTTPS"
+        }, {
+          "id" : "26",
+          "tags" : "Relationship",
+          "sourceId" : "3",
+          "destinationId" : "6",
+          "description" : "Makes API calls to [JSON/HTTPS]"
+        }, {
+          "id" : "25",
+          "tags" : "Relationship",
+          "sourceId" : "3",
+          "destinationId" : "13",
+          "description" : "Reads from and writes to [JDBC]"
+        }, {
+          "id" : "39",
+          "tags" : "Relationship",
+          "sourceId" : "3",
+          "destinationId" : "9",
+          "description" : "Makes API calls to",
+          "technology" : "JSON/HTTPS"
+        } ],
+        "technology" : "JavaScript and Angular",
+        "documentation" : { }
+      }, {
+        "id" : "13",
+        "tags" : "Element,Container,Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "database"
+        },
+        "name" : "Database",
+        "description" : "Stores user registration information, hashed authentication credentials, access logs, etc.",
+        "technology" : "Oracle Database Schema",
+        "documentation" : { }
+      }, {
+        "id" : "5",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "webapp"
+        },
+        "name" : "Web Application",
+        "description" : "Delivers the static content and the Internet banking single page application.",
+        "relationships" : [ {
+          "id" : "23",
+          "tags" : "Relationship",
+          "sourceId" : "5",
+          "destinationId" : "3",
+          "description" : "Delivers to the customer's web browser"
+        } ],
+        "technology" : "Java and Spring MVC",
+        "documentation" : { }
+      } ],
+      "documentation" : { }
+    } ]
+  },
+  "documentation" : { },
+  "views" : {
+    "systemContextViews" : [ {
+      "key" : "SystemContext",
+      "order" : 1,
+      "softwareSystemId" : "2",
+      "dimensions" : {
+        "width" : 1600,
+        "height" : 2000
+      },
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "enterpriseBoundaryVisible" : true,
+      "elements" : [ {
+        "id" : "1",
+        "x" : 562,
+        "y" : 200
+      }, {
+        "id" : "2",
+        "x" : 878,
+        "y" : 900
+      }, {
+        "id" : "14",
+        "x" : 199,
+        "y" : 1500
+      }, {
+        "id" : "15",
+        "x" : 949,
+        "y" : 1500
+      } ],
+      "relationships" : [ {
+        "id" : "18"
+      }, {
+        "id" : "17"
+      }, {
+        "id" : "16"
+      }, {
+        "id" : "19"
+      } ]
+    } ],
+    "containerViews" : [ {
+      "key" : "Containers",
+      "order" : 2,
+      "softwareSystemId" : "2",
+      "dimensions" : {
+        "width" : 3870,
+        "height" : 2417
+      },
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "externalSoftwareSystemBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "1",
+        "x" : 975,
+        "y" : 200
+      }, {
+        "id" : "13",
+        "x" : 3200,
+        "y" : 1138
+      }, {
+        "id" : "3",
+        "x" : 1700,
+        "y" : 1409
+      }, {
+        "id" : "14",
+        "x" : 200,
+        "y" : 1134
+      }, {
+        "id" : "15",
+        "x" : 3200,
+        "y" : 1917
+      }, {
+        "id" : "4",
+        "x" : 1700,
+        "y" : 809
+      }, {
+        "id" : "5",
+        "x" : 950,
+        "y" : 1154
+      }, {
+        "id" : "6",
+        "x" : 2450,
+        "y" : 1409
+      } ],
+      "relationships" : [ {
+        "id" : "28"
+      }, {
+        "id" : "27",
+        "vertices" : [ {
+          "x" : 2150,
+          "y" : 1859
+        }, {
+          "x" : 1700,
+          "y" : 1859
+        }, {
+          "x" : 846,
+          "y" : 1604
+        } ]
+      }, {
+        "id" : "26"
+      }, {
+        "id" : "25",
+        "vertices" : [ {
+          "x" : 2450,
+          "y" : 1259
+        }, {
+          "x" : 2900,
+          "y" : 1259
+        } ]
+      }, {
+        "id" : "24"
+      }, {
+        "id" : "23"
+      }, {
+        "id" : "34"
+      }, {
+        "id" : "22"
+      }, {
+        "id" : "21",
+        "vertices" : [ {
+          "x" : 1175,
+          "y" : 702
+        }, {
+          "x" : 1175,
+          "y" : 1003
+        } ]
+      }, {
+        "id" : "20",
+        "vertices" : [ {
+          "x" : 1400,
+          "y" : 629
+        }, {
+          "x" : 1700,
+          "y" : 1259
+        } ]
+      }, {
+        "id" : "19",
+        "vertices" : [ {
+          "x" : 846,
+          "y" : 629
+        } ]
+      } ]
+    } ],
+    "componentViews" : [ {
+      "key" : "Components",
+      "order" : 3,
+      "dimensions" : {
+        "width" : 2707,
+        "height" : 2500
+      },
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "containerId" : "6",
+      "externalContainerBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "11",
+        "x" : 219,
+        "y" : 1400
+      }, {
+        "id" : "12",
+        "x" : 969,
+        "y" : 1400
+      }, {
+        "id" : "13",
+        "x" : 2056,
+        "y" : 2000
+      }, {
+        "id" : "3",
+        "x" : 1719,
+        "y" : 200
+      }, {
+        "id" : "14",
+        "x" : 969,
+        "y" : 2000
+      }, {
+        "id" : "4",
+        "x" : 969,
+        "y" : 200
+      }, {
+        "id" : "15",
+        "x" : 219,
+        "y" : 2000
+      }, {
+        "id" : "7",
+        "x" : 1719,
+        "y" : 800
+      }, {
+        "id" : "8",
+        "x" : 219,
+        "y" : 800
+      }, {
+        "id" : "9",
+        "x" : 969,
+        "y" : 800
+      }, {
+        "id" : "10",
+        "x" : 1719,
+        "y" : 1400
+      } ],
+      "relationships" : [ {
+        "id" : "40"
+      }, {
+        "id" : "41"
+      }, {
+        "id" : "42"
+      }, {
+        "id" : "32"
+      }, {
+        "id" : "31"
+      }, {
+        "id" : "30"
+      }, {
+        "id" : "29"
+      }, {
+        "id" : "37"
+      }, {
+        "id" : "25",
+        "vertices" : [ {
+          "x" : 2348,
+          "y" : 696
+        }, {
+          "x" : 2348,
+          "y" : 1804
+        } ]
+      }, {
+        "id" : "36"
+      }, {
+        "id" : "35"
+      }, {
+        "id" : "33"
+      }, {
+        "id" : "38",
+        "vertices" : [ {
+          "x" : 1569,
+          "y" : 500
+        }, {
+          "x" : 819,
+          "y" : 696
+        } ]
+      }, {
+        "id" : "39"
+      } ]
+    } ],
+    "configuration" : {
+      "branding" : { },
+      "styles" : {
+        "elements" : [ {
+          "tag" : "Customer",
+          "background" : "#08427b",
+          "color" : "#ffffff",
+          "fontSize" : 22,
+          "shape" : "Person"
+        }, {
+          "tag" : "Target System",
+          "background" : "#1168bd",
+          "color" : "#ffffff"
+        }, {
+          "tag" : "External System",
+          "background" : "#999999",
+          "color" : "#ffffff"
+        }, {
+          "tag" : "Database",
+          "shape" : "Cylinder"
+        } ]
+      },
+      "themes" : [ "https://static.structurizr.com/themes/default/theme.json" ],
+      "terminology" : { },
+      "metadataSymbols" : "SquareBrackets",
+      "lastSavedView" : "SystemContext"
+    }
+  }
+}
