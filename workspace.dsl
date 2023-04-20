@@ -34,9 +34,13 @@ workspace {
 
         # Relationship between People and Software Systems
         customer -> iBankingSys "Views account balances, and makes payments using"
-        iBankingSys -> emailSys "Send email using"
+        iBankingSys -> emailSys "Send email using" {
+            tags "Async Request"
+        }
         iBankingSys -> mainframeSys "Gets account information from, and makes payments using"
-        emailSys -> customer "Sends emails to"
+        emailSys -> customer "Sends emails to" {
+            tags "Async Request"
+        }
 
         # Relationship between Containers
         customer -> singlePageApp "Views account balances, and makes payments using"
@@ -48,7 +52,9 @@ workspace {
         singlePageApp ->  apiApp "Makes API calls to [JSON/HTTPS]"
 
         # Relationship between Containers and External System
-        apiApp -> emailSys "Send email using"
+        apiApp -> emailSys "Send email using" {
+            tags "Async Request"
+        }
         apiApp -> mainframeSys "Make API calls to [XML/HTTPS]"
 
         # Relationship between Components
@@ -58,7 +64,9 @@ workspace {
         resetPasswordController -> emailComponent "Uses"
         securityComponent -> database "Reads from and writes to" "JDBC"
         mainframeBankingSystemFacade -> mainframeSys "Makes API calls to" "XML/HTTPS"
-        emailComponent -> emailSys "Sends e-mail using"
+        emailComponent -> emailSys "Sends e-mail using" {
+            tags "Async Request"
+        }
 
         # Relationship between Components and Other Containers
         singlePageApp -> signinController "Makes API calls to" "JSON/HTTPS"
@@ -67,6 +75,26 @@ workspace {
         mobileApp -> signinController "Makes API calls to" "JSON/HTTPS"
         mobileApp -> accountsSummaryController "Makes API calls to" "JSON/HTTPS"
         mobileApp -> resetPasswordController "Makes API calls to" "JSON/HTTPS"
+
+        # Deployment for Dev Env
+        deploymentEnvironment "Development" {
+            deploymentNode "Developer Laptop" "" "Microsoft Windows 10 or Apple macOS" {
+                deploymentNode "Web Browser" "" "Chrome, Firefox, Safari, or Edge" {
+                    containerInstance singlePageApp
+                }
+                deploymentNode "Docker Container - Web Server" "" "Docker" {
+                    deploymentNode "Apache Tomcat" "" "Apache Tomcat 8.x" {
+                        containerInstance webApp
+                        containerInstance apiApp
+                    }
+                }
+                deploymentNode "Docker Container - Database Server" "" "Docker" {
+                    deploymentNode "Database Server" "" "Oracle 12c" {
+                        containerInstance database
+                    }
+                }
+            }
+        }
     }
 
     views {
@@ -82,9 +110,13 @@ workspace {
             include *
             autoLayout lr
         }
-
         component apiApp "Components" {
             include *
+            autoLayout
+        }
+        # deployment <software-system> <environment> <key> <description>
+        deployment iBankingSys "Development" "Dep-002-DEV" "Environment for Developer" {
+            include *           
             autoLayout
         }
 
@@ -96,13 +128,15 @@ workspace {
                 fontSize 22
                 shape Person
             }
-            element "Target System" {
-                background #1168BD
-                color #ffffff
-            }
             element "External System" {
                 background #999999
                 color #ffffff
+            }
+            relationship "Relationship" {
+                dashed false
+            }
+            relationship "Async Request" {
+                dashed true
             }
             element "Database" {
                 shape Cylinder
