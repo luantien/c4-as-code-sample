@@ -3,11 +3,11 @@ workspace extends ../workspace.dsl {
         deploymentEnvironment "Production" {
             deploymentNode "Amazon Web Services" {
                 tags "Amazon Web Services - Cloud"
-                deploymentNode "US-East-1" {
-                    tags ""
-                    route53 = infrastructureNode "Route 53" {
+                route53 = infrastructureNode "Route 53" {
                         tags "Amazon Web Services - Route 53"
                     }
+                deploymentNode "US-East-1" {
+                    tags ""
                     loadBalancer = infrastructureNode "Elastic Load Balancer"{
                         tags "Amazon Web Services - Elastic Load Balancing"
                     }

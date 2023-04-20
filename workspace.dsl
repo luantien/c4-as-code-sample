@@ -10,9 +10,9 @@ workspace {
             # Level 2: Container
             # <variable> = softwareSystem <name> <description> <tag>
             # app = group "Application" {
-                singlePageApp = container "Single-Page Application" "Provides all of the Internet banking functionality to customers via their web browser." "JavaScript and Angular" "Web Browser"
-                mobileApp = container "Mobile App" "Provides a limited subset of the Internet banking functionality to customers via their mobile device." "Xamarin" "Mobile App"
-                webApp = container "Web Application" "Delivers the static content and the Internet banking single page application." "Java and Spring MVC"
+            singlePageApp = container "Single-Page Application" "Provides all of the Internet banking functionality to customers via their web browser." "JavaScript and Angular" "Web Browser"
+            mobileApp = container "Mobile App" "Provides a limited subset of the Internet banking functionality to customers via their mobile device." "Xamarin" "Mobile App"
+            webApp = container "Web Application" "Delivers the static content and the Internet banking single page application." "Java and Spring MVC"
             # }
             apiApp = container "API Application" "Provides Internet banking functionality via a JSON/HTTPS API." "Java and Spring MVC" {
                 # Level 3: Component
@@ -46,7 +46,7 @@ workspace {
         customer -> mobileApp "Views account balances, and makes payments using"
         webApp -> singlePageApp "Delivers to the customer's web browser"
         mobileApp -> apiApp "Makes API calls to [JSON/HTTPS]"
-        singlePageApp -> database "Reads from and writes to [JDBC]"
+        apiApp -> database "Reads from and writes to [JDBC]"
         singlePageApp ->  apiApp "Makes API calls to [JSON/HTTPS]"
 
         # Relationship between Containers and External System
@@ -74,7 +74,7 @@ workspace {
         mobileApp -> accountsSummaryController "Makes API calls to" "JSON/HTTPS"
         mobileApp -> resetPasswordController "Makes API calls to" "JSON/HTTPS"
 
-        # Deployment for Dev Env
+        # # Deployment for Dev Env
         deploymentEnvironment "Development" {
             deploymentNode "Developer Laptop" "" "Microsoft Windows 10 or Apple macOS" {
                 deploymentNode "Web Browser" "" "Chrome, Firefox, Safari, or Edge" {
@@ -103,7 +103,7 @@ workspace {
             # support tb, bt, lr, rl
             autoLayout
         }
-        # Level 2
+        # # Level 2
         container iBankingSys "Containers" {
             include *
             autoLayout lr
