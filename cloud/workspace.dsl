@@ -1,5 +1,25 @@
 workspace extends ../models.dsl {
     model {       
+                # # Deployment for Dev Env
+        # deploymentEnvironment "Development" {
+        #     deploymentNode "Developer Laptop" "" "Microsoft Windows 10 or Apple macOS" {
+        #         deploymentNode "Web Browser" "" "Chrome, Firefox, Safari, or Edge" {
+        #             containerInstance singlePageApp
+        #         }
+        #         deploymentNode "Docker Container - Web Server" "" "Docker" {
+        #             deploymentNode "Apache Tomcat" "" "Apache Tomcat 8.x" {
+        #                 containerInstance webApp
+        #                 containerInstance apiApp
+        #             }
+        #         }
+        #         deploymentNode "Docker Container - Database Server" "" "Docker" {
+        #             deploymentNode "Database Server" "" "Oracle 12c" {
+        #                 containerInstance database
+        #             }
+        #         }
+        #     }
+        # }
+
         # deploymentEnvironment "Production" {
         #     deploymentNode "Amazon Web Services" {
         #         tags "Amazon Web Services - Cloud"
@@ -38,6 +58,20 @@ workspace extends ../models.dsl {
         # deployment iBankingSys "Production" "Dep-002-PROD" "Production Deployment for Sample App" {
         #     include *
         #     autoLayout lr
+        # }
+                # deployment <software-system> <environment> <key> <description>
+        # deployment iBankingSys "Development" "Dep-002-DEV" "Environment for Developer" {
+        #     include *           
+        #     autoLayout
+        # }
+        # dynamic apiApp "SignIn" "Summarises how the sign in feature works in the single-page application." {
+        #     singlePageApp -> signinController "Submits credentials to"
+        #     signinController -> securityComponent "Validates credentials using"
+        #     securityComponent -> database "select * from users where username = ?"
+        #     database -> securityComponent "Returns user data to"
+        #     securityComponent -> signinController "Returns true if the hashed password matches"
+        #     signinController -> singlePageApp "Sends back an authentication token to"
+        #     autoLayout
         # }
 
         theme "https://static.structurizr.com/themes/amazon-web-services-2020.04.30/theme.json"
