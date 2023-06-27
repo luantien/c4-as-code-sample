@@ -29,7 +29,7 @@ workspace extends ../models.dsl {
                                 searchWebApiInstance = containerInstance searchWebApi
                                 publicWebApiInstance = containerInstance publicWebApi
                                 adminWebApiInstance = containerInstance adminWebApi
-                                # publisherRecurrentUpdateInstance = containerInstance publisherRecurrentUpdater
+                                publisherRecurrentUpdateInstance = containerInstance publisherRecurrentUpdater
                             }
 
                             deploymentNode "ec2-b" {
