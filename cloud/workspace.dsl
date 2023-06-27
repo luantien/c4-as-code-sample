@@ -1,79 +1,112 @@
 workspace extends ../models.dsl {
     model {       
-                # # Deployment for Dev Env
-        # deploymentEnvironment "Development" {
-        #     deploymentNode "Developer Laptop" "" "Microsoft Windows 10 or Apple macOS" {
-        #         deploymentNode "Web Browser" "" "Chrome, Firefox, Safari, or Edge" {
-        #             containerInstance singlePageApp
-        #         }
-        #         deploymentNode "Docker Container - Web Server" "" "Docker" {
-        #             deploymentNode "Apache Tomcat" "" "Apache Tomcat 8.x" {
-        #                 containerInstance webApp
-        #                 containerInstance apiApp
-        #             }
-        #         }
-        #         deploymentNode "Docker Container - Database Server" "" "Docker" {
-        #             deploymentNode "Database Server" "" "Oracle 12c" {
-        #                 containerInstance database
-        #             }
-        #         }
-        #     }
-        # }
+        # Deployment
+        prodEnvironment = deploymentEnvironment "Production" {
+            deploymentNode "AWS" {
+                tags "Amazon Web Services - Cloud"
 
-        # deploymentEnvironment "Production" {
-        #     deploymentNode "Amazon Web Services" {
-        #         tags "Amazon Web Services - Cloud"
-        #         route53 = infrastructureNode "Route 53" {
-        #                 tags "Amazon Web Services - Route 53"
-        #             }
-        #         deploymentNode "US-East-1" {
-        #             tags ""
-        #             loadBalancer = infrastructureNode "Elastic Load Balancer"{
-        #                 tags "Amazon Web Services - Elastic Load Balancing"
-        #             }
-        #             deploymentNode "Autoscaling Group" {
-        #                 tags "Amazon Web Services - Auto Scaling"
-        #                 deploymentNode "Amazon EC2" {
-        #                     tags "Amazon Web Services - EC2"
-        #                     apiAppInstance = containerInstance apiApp
-        #                 }
-        #             }
-        #             deploymentNode "Amazon RDS" {
-        #                 tags "Amazon Web Services - RDS Amazon RDS instance"
-        #                 deploymentNode "Oracle" {
-        #                     tags "Amazon Web Services - RDS Oracle instance"
-        #                     dbInstance = containerInstance database
-        #                 }
-        #             }
-        #         }
-        #     }
-        # }
-        # # Relationship
-        # route53 -> loadBalancer "Forward requests to [HTTPS]"
-        # loadBalancer -> apiAppInstance "Forward requests to [HTTPS]"
+                route53 = infrastructureNode "Route 53" {
+                    tags "Amazon Web Services - Route 53"
+                }
+
+                deploymentNode "ap-southeast-1" {
+                    tags "Amazon Web Services - Region"
+
+
+                    deploymentNode "prod-vpc" {
+                        tags "Amazon Web Services - VPC"
+
+                        appLoadBalancer = infrastructureNode "Application Load Balancer" {
+                            tags "Amazon Web Services - Elastic Load Balancing ELB Application load balancer"
+                        }
+
+                        deploymentNode "eks-cluster" {
+                            tags "Amazon Web Services - Elastic Kubernetes Service"
+                        
+                            deploymentNode "ec2-a" {
+                                tags "Amazon Web Services - EC2 Instance"
+
+                                searchWebApiInstance = containerInstance searchWebApi
+                                publicWebApiInstance = containerInstance publicWebApi
+                                adminWebApiInstance = containerInstance adminWebApi
+                                # publisherRecurrentUpdateInstance = containerInstance publisherRecurrentUpdater
+                            }
+
+                            deploymentNode "ec2-b" {
+                                tags "Amazon Web Services - EC2 Instance"
+
+                                containerInstance bookEventConsumer
+                                containerInstance bookEventStream
+                            }
+                        }
+
+                        deploymentNode "Amazon Elasticsearch" {
+                            tags "Amazon Web Services - Elasticsearch Service"
+
+                            containerInstance searchDatabase
+                        }
+
+                        deploymentNode "PostgreSQL RDS" {
+                            tags "Amazon Web Services - RDS"
+                            
+                            containerInstance bookstoreDatabase
+                        }
+                    }
+                }
+            }
+            route53 -> appLoadBalancer
+            appLoadBalancer -> publicWebApiInstance "Forwards requests to" "[HTTPS]"
+            appLoadBalancer -> searchWebApiInstance "Forwards requests to" "[HTTPS]"
+            appLoadBalancer -> adminWebApiInstance "Forwards requests to" "[HTTPS]"
+        }
+
+        developer = person "Developer" "Internal bookstore platform developer" "User"
+        deployWorkflow = softwareSystem "CI/CD Workflow" "Workflow CI/CD for deploying system using AWS Services" "Target System" {
+            repository = container "Code Repository" "" "Github"
+            pipeline = container "CodePipeline" {
+                tags "Amazon Web Services - CodePipeline" "Dynamic Element"
+            }
+            codeBuilder = container "CodeBuild" "" {
+                tags "Amazon Web Services - CodeBuild" "Dynamic Element"
+            }
+            containerRegistry = container "Amazon ECR" {
+                tags "Amazon Web Services - EC2 Container Registry" "Dynamic Element"
+            }
+            cluster = container "Amazon EKS" {
+                tags "Amazon Web Services - Elastic Kubernetes Service" "Dynamic Element"
+            }
+        }
+        developer -> repository
+        repository -> pipeline
+        pipeline -> codeBuilder
+        codeBuilder -> containerRegistry
+        codeBuilder -> pipeline
+        pipeline -> cluster
     }
 
     views {
         # deployment <software-system> <environment> <key> <description>
-        # deployment iBankingSys "Production" "Dep-002-PROD" "Production Deployment for Sample App" {
-        #     include *
-        #     autoLayout lr
-        # }
-                # deployment <software-system> <environment> <key> <description>
-        # deployment iBankingSys "Development" "Dep-002-DEV" "Environment for Developer" {
-        #     include *           
-        #     autoLayout
-        # }
-        # dynamic apiApp "SignIn" "Summarises how the sign in feature works in the single-page application." {
-        #     singlePageApp -> signinController "Submits credentials to"
-        #     signinController -> securityComponent "Validates credentials using"
-        #     securityComponent -> database "select * from users where username = ?"
-        #     database -> securityComponent "Returns user data to"
-        #     securityComponent -> signinController "Returns true if the hashed password matches"
-        #     signinController -> singlePageApp "Sends back an authentication token to"
-        #     autoLayout
-        # }
+        deployment bookstoreSystem prodEnvironment "Dep-001-PROD" "Cloud Architecture for Bookstore Platform using AWS Services" {
+            include *
+            autoLayout lr
+        }
+        # dynamic <container> <name> <description>
+        dynamic deployWorkflow "Dynamic-001-WF" "Bookstore platform deployment workflow" {
+            developer -> repository "Commit, and push changes"
+            repository -> pipeline "Trigger pipeline job"
+            pipeline -> codeBuilder "Download source code, and start build process"
+            codeBuilder -> containerRegistry "Upload Docker image with unique tag"
+            codeBuilder -> pipeline "Return the build result"
+            pipeline -> cluster "Deploy container"
+            autoLayout lr
+        }
 
         theme "https://static.structurizr.com/themes/amazon-web-services-2020.04.30/theme.json"
+
+        styles {
+            element "Dynamic Element" {
+                background #ffffff
+            }
+        }
     }
 }
