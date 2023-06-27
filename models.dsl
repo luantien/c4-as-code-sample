@@ -13,13 +13,17 @@ workspace {
             searchWebApi = container "Search Web API" "Allows only authorized users searching books records via HTTPS API" "Go"
             adminWebApi = container "Admin Web API" "Allows only authorized users administering books details via HTTPS API" "Go" {
                 # Level 3: Components
-                bookService = component "Book Service" "Allows administrating book details" "Go Service"
-                authService = component "Authentication Service" "Authorize users by using external Authorization System" "Go Service"
+                # <variable> = component <name> <description> <technology> <tag>
+                bookService = component "Book Service" "Allows administrating book details" "Go"
+                authService = component "Authentication Service" "Authorize users by using external Authorization System" "Go"
 
             }
             publicWebApi = container "Public Web API" "Allows public users getting books information" "Go"
             searchDatabase = container "Search Database" "Stores searchable book information" "ElasticSearch" "Database"
             bookstoreDatabase = container "Bookstore Database" "Stores book details" "PostgreSQL" "Database"
+            bookEventStream = container "Book Event Stream" "Handles book-related domain events" "Apache Kafka 3.0"
+            bookSearchEventConsumer = container "Book Search Event Consumer" "Listening to domain events and write publisher to Search Database for updating" "Go"
+            publisherRecurrentUpdater = container "Publisher Recurrent Updater" "Listening to external events from Publisher System, and update book information" "Go"
         }
         
         # External Software Systems
@@ -31,24 +35,30 @@ workspace {
         publicUser -> bookstoreSystem "View book information"
         authorizedUser -> bookstoreSystem "Search book with more details, administrate books and their details"
         bookstoreSystem -> authSystem "Register new user, and authorize user access"
-        publisherSystem -> bookstoreSystem "publish events for new book publication, and book information updates" {
+        publisherSystem -> bookstoreSystem "Publish events for new book publication, and book information updates" {
             tags "Async Request"
         }
 
         # Relationship between Containers
-        # customer -> singlePageApp "Views account balances, and makes payments using"
-        # customer -> webApp "Visits bigbank.com/ib using" "HTTPS"
-        # customer -> mobileApp "Views account balances, and makes payments using"
-        # webApp -> singlePageApp "Delivers to the customer's web browser"
-        # mobileApp -> apiApp "Makes API calls to [JSON/HTTPS]"
-        # apiApp -> database "Reads from and writes to [JDBC]"
-        # singlePageApp ->  apiApp "Makes API calls to [JSON/HTTPS]"
+        publicUser -> publicWebApi "View book information [JSON/HTTPS]"
+        publicWebApi -> searchDatabase "Retrieve book searchable information [ODBC]"
+        authorizedUser -> searchWebApi "Search book with more details [JSON/HTTPS]"
+        searchWebApi -> authSystem "Authorize user [JSON/HTTPS]"
+        searchWebApi -> searchDatabase "Retrieve searchable book information [ODBC]"
+        authorizedUser -> adminWebApi "Administrate books and their details [JSON/HTTPS]"
+        adminWebApi -> authSystem "Authorize user [JSON/HTTPS]"
+        adminWebApi -> bookstoreDatabase "Reads/Write book detail data [ODBC]"
+        adminWebApi -> bookEventStream "Publish book update events" {
+            tags "Async Request"
+        }
+        bookEventStream -> bookSearchEventConsumer "Consume book update events"
+        bookSearchEventConsumer -> searchDatabase "Write book searchable information [ODBC]"
+        publisherRecurrentUpdater -> adminWebApi "Makes API calls to [JSON/HTTPS]"
 
         # Relationship between Containers and External System
-        # apiApp -> emailSys "Send email using" {
-        #     tags "Async Request"
-        # }
-        # apiApp -> mainframeSys "Make API calls to [XML/HTTPS]"
+        publisherSystem -> publisherRecurrentUpdater "Consume book publication update events" {
+            tags "Async Request"
+        }
 
         # Relationship between Components
         # signinController -> securityComponent "Uses"
