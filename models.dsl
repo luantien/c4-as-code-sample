@@ -15,8 +15,8 @@ workspace {
                 # Level 3: Components
                 # <variable> = component <name> <description> <technology> <tag>
                 bookService = component "Book Service" "Allows administrating book details" "Go"
-                authService = component "Authentication Service" "Authorize users by using external Authorization System" "Go"
-
+                authService = component "Authorizer" "Authorize users by using external Authorization System" "Go"
+                bookEventPublisher = component "Book Events Publisher" "Publishes books-related events to Events Publisher" "Go"
             }
             publicWebApi = container "Public Web API" "Allows public users getting books information" "Go"
             searchDatabase = container "Search Database" "Stores searchable book information" "ElasticSearch" "Database"
@@ -31,7 +31,7 @@ workspace {
         publisherSystem = softwareSystem "Publisher System" "The 3rd party system of publishers that gives details about books published by them" "External System"
         
         # Relationship between People and Software Systems
-        # <variable> -> <variable> <description>
+        # <variable> -> <variable> <description> <protocol>
         publicUser -> bookstoreSystem "View book information"
         authorizedUser -> bookstoreSystem "Search book with more details, administrate books and their details"
         bookstoreSystem -> authSystem "Register new user, and authorize user access"
@@ -40,20 +40,20 @@ workspace {
         }
 
         # Relationship between Containers
-        publicUser -> publicWebApi "View book information [JSON/HTTPS]"
-        publicWebApi -> searchDatabase "Retrieve book searchable information [ODBC]"
-        authorizedUser -> searchWebApi "Search book with more details [JSON/HTTPS]"
-        searchWebApi -> authSystem "Authorize user [JSON/HTTPS]"
-        searchWebApi -> searchDatabase "Retrieve searchable book information [ODBC]"
-        authorizedUser -> adminWebApi "Administrate books and their details [JSON/HTTPS]"
-        adminWebApi -> authSystem "Authorize user [JSON/HTTPS]"
-        adminWebApi -> bookstoreDatabase "Reads/Write book detail data [ODBC]"
+        publicUser -> publicWebApi "View book information" "JSON/HTTPS"
+        publicWebApi -> searchDatabase "Retrieve book searchable information" "ODBC"
+        authorizedUser -> searchWebApi "Search book with more details" "JSON/HTTPS"
+        searchWebApi -> authSystem "Authorize user" "JSON/HTTPS"
+        searchWebApi -> searchDatabase "Retrieve searchable book information" "ODBC"
+        authorizedUser -> adminWebApi "Administrate books and their details" "JSON/HTTPS"
+        adminWebApi -> authSystem "Authorize user" "JSON/HTTPS"
+        adminWebApi -> bookstoreDatabase "Reads/Write book detail data" "ODBC"
         adminWebApi -> bookEventStream "Publish book update events" {
             tags "Async Request"
         }
         bookEventStream -> bookSearchEventConsumer "Consume book update events"
-        bookSearchEventConsumer -> searchDatabase "Write book searchable information [ODBC]"
-        publisherRecurrentUpdater -> adminWebApi "Makes API calls to [JSON/HTTPS]"
+        bookSearchEventConsumer -> searchDatabase "Write book searchable information" "ODBC"
+        publisherRecurrentUpdater -> adminWebApi "Makes API calls to" "JSON/HTTPS"
 
         # Relationship between Containers and External System
         publisherSystem -> publisherRecurrentUpdater "Consume book publication update events" {
@@ -61,24 +61,17 @@ workspace {
         }
 
         # Relationship between Components
-        # signinController -> securityComponent "Uses"
-        # accountsSummaryController -> mainframeBankingSystemFacade "Uses"
-        # resetPasswordController -> securityComponent "Uses"
-        # resetPasswordController -> emailComponent "Uses"
-        # securityComponent -> database "Reads from and writes to" "JDBC"
-        # mainframeBankingSystemFacade -> mainframeSys "Makes API calls to" "XML/HTTPS"
-        # emailComponent -> emailSys "Sends e-mail using" {
-        #     tags "Async Request"
-        # }
+        authorizedUser -> bookService "Administrate book details" "JSON/HTTPS"
+        publisherRecurrentUpdater -> bookService "Makes API calls to" "JSON/HTTPS"
+        bookService -> authService "Uses"
+        bookService -> bookEventPublisher "Uses"
 
         # Relationship between Components and Other Containers
-        # singlePageApp -> signinController "Makes API calls to" "JSON/HTTPS"
-        # singlePageApp -> accountsSummaryController "Makes API calls to" "JSON/HTTPS"
-        # singlePageApp -> resetPasswordController "Makes API calls to" "JSON/HTTPS"
-        # mobileApp -> signinController "Makes API calls to" "JSON/HTTPS"
-        # mobileApp -> accountsSummaryController "Makes API calls to" "JSON/HTTPS"
-        # mobileApp -> resetPasswordController "Makes API calls to" "JSON/HTTPS"
-
+        authService -> authSystem "Authorize user permissions" "JSON/HTTPS"
+        bookService -> bookstoreDatabase "Read/Write data" "ODBC"
+        bookService -> bookstoreDatabase "Read/Write data" "ODBC"
+        bookEventPublisher -> bookEventStream "Publish book update events"
+        
         # # Deployment for Dev Env
         # deploymentEnvironment "Development" {
         #     deploymentNode "Developer Laptop" "" "Microsoft Windows 10 or Apple macOS" {
