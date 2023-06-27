@@ -22,7 +22,7 @@ workspace {
             searchDatabase = container "Search Database" "Stores searchable book information" "ElasticSearch" "Database"
             bookstoreDatabase = container "Bookstore Database" "Stores book details" "PostgreSQL" "Database"
             bookEventStream = container "Book Event Stream" "Handles book-related domain events" "Apache Kafka 3.0"
-            bookSearchEventConsumer = container "Book Search Event Consumer" "Listening to domain events and write publisher to Search Database for updating" "Go"
+            bookEventConsumer = container "Book Event Consumer" "Listening to domain events and write publisher to Search Database for updating" "Go"
             publisherRecurrentUpdater = container "Publisher Recurrent Updater" "Listening to external events from Publisher System, and update book information" "Go"
         }
         
@@ -41,18 +41,18 @@ workspace {
 
         # Relationship between Containers
         publicUser -> publicWebApi "View book information" "JSON/HTTPS"
-        publicWebApi -> searchDatabase "Retrieve book searchable information" "ODBC"
+        publicWebApi -> searchDatabase "Retrieve book search data" "ODBC"
         authorizedUser -> searchWebApi "Search book with more details" "JSON/HTTPS"
         searchWebApi -> authSystem "Authorize user" "JSON/HTTPS"
-        searchWebApi -> searchDatabase "Retrieve searchable book information" "ODBC"
+        searchWebApi -> searchDatabase "Retrieve book search data" "ODBC"
         authorizedUser -> adminWebApi "Administrate books and their details" "JSON/HTTPS"
         adminWebApi -> authSystem "Authorize user" "JSON/HTTPS"
         adminWebApi -> bookstoreDatabase "Reads/Write book detail data" "ODBC"
         adminWebApi -> bookEventStream "Publish book update events" {
             tags "Async Request"
         }
-        bookEventStream -> bookSearchEventConsumer "Consume book update events"
-        bookSearchEventConsumer -> searchDatabase "Write book searchable information" "ODBC"
+        bookEventStream -> bookEventConsumer "Consume book update events"
+        bookEventConsumer -> searchDatabase "Write book search data" "ODBC"
         publisherRecurrentUpdater -> adminWebApi "Makes API calls to" "JSON/HTTPS"
 
         # Relationship between Containers and External System
@@ -71,26 +71,6 @@ workspace {
         bookService -> bookstoreDatabase "Read/Write data" "ODBC"
         bookService -> bookstoreDatabase "Read/Write data" "ODBC"
         bookEventPublisher -> bookEventStream "Publish book update events"
-        
-        # # Deployment for Dev Env
-        # deploymentEnvironment "Development" {
-        #     deploymentNode "Developer Laptop" "" "Microsoft Windows 10 or Apple macOS" {
-        #         deploymentNode "Web Browser" "" "Chrome, Firefox, Safari, or Edge" {
-        #             containerInstance singlePageApp
-        #         }
-        #         deploymentNode "Docker Container - Web Server" "" "Docker" {
-        #             deploymentNode "Apache Tomcat" "" "Apache Tomcat 8.x" {
-        #                 containerInstance webApp
-        #                 containerInstance apiApp
-        #             }
-        #         }
-        #         deploymentNode "Docker Container - Database Server" "" "Docker" {
-        #             deploymentNode "Database Server" "" "Oracle 12c" {
-        #                 containerInstance database
-        #             }
-        #         }
-        #     }
-        # }
     }
 
     views {
@@ -99,7 +79,7 @@ workspace {
             include *
             # default: tb,
             # support tb, bt, lr, rl
-            autoLayout
+            autoLayout lr
         }
         # Level 2
         container bookstoreSystem "Containers" {
@@ -109,22 +89,9 @@ workspace {
         # Level 3
         component adminWebApi "Components" {
             include *
-            autoLayout
+            autoLayout lr
         }
-        # deployment <software-system> <environment> <key> <description>
-        # deployment iBankingSys "Development" "Dep-002-DEV" "Environment for Developer" {
-        #     include *           
-        #     autoLayout
-        # }
-        # dynamic apiApp "SignIn" "Summarises how the sign in feature works in the single-page application." {
-        #     singlePageApp -> signinController "Submits credentials to"
-        #     signinController -> securityComponent "Validates credentials using"
-        #     securityComponent -> database "select * from users where username = ?"
-        #     database -> securityComponent "Returns user data to"
-        #     securityComponent -> signinController "Returns true if the hashed password matches"
-        #     signinController -> singlePageApp "Sends back an authentication token to"
-        #     autoLayout
-        # }
+
 
         styles {
             # element <tag> {}
